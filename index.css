@@ -1,0 +1,141 @@
+.container {
+    font-size: 18px;
+    color: pink;
+    /* (BORDE) AFECTA EL CONTENIDO */
+    border: 3px solid black;
+    /* (CONTORNO) NO AFECTA EL CONTENIDO PORQUE SE DIBUJA ENCIMA DEL MISMO */
+    outline: 3px solid black;
+}
+
+.child-container {
+    /* VALOR INICIAL DEFINIDO POR LAS ESPECIFICACIONES DE CSS */
+    border: initial;
+    /* HEREDAR VALOR DEL PADRE */
+    border: inherit;
+    /* PARA QUE NO HEREDE DE NINGUN PADRE */
+    border: unset;
+}
+
+/*! PSEUDOCLASES */
+
+/* CUANDO SE ESTA ENCIMA DEL ELEMENTO */
+.container:hover {
+    color: yellow;
+}
+
+/* CUANDO SE ENCUENTRA ACTIVO EL ELEMENTO */
+.container:active {
+    color: green;
+}
+
+/* CUANDO SE HACE FOCO AL ELEMENTO */
+.container:focus {
+    color: red;
+}
+
+/* SOLO AFECTA AL PRIMER HIJO */
+.container:first-child {
+    color: purple;
+}
+
+/* SOLO AFECTA AL ULTIMO HIJO */
+.container:last-child {
+    color: darkcyan;
+}
+
+/*! OPERADORES */
+
+/* SOLO AFECTA A LOS QUE SON HIJOS DIRECTOS DE ESTE ELEMENTO */
+.container>p {
+    color: aquamarine;
+}
+
+/* SI .container SE ENCUENTRA DESPUES DE UN ELEMENTO <P>, APLICA LOS ESTILOS */
+.container~p {
+    color: blueviolet;
+}
+
+/* SOLO APLICA SI EL ELEMENTO <p> ES HIJO DIRECTO DEL .container */
+.container+p {
+    color: antiquewhite;
+}
+
+/*! UNIDADES DE MEDIDA */
+.container {
+    /* UNIDADES ABSOLUTAS */
+    width: 100px;
+    height: 100px;
+    /* UNIDADES RELATIVAS AL CONTENEDOR EN EL QUE SE ENCUENTRA */
+    width: 50%;
+    height: 50%;
+    /* UNIDADES RELATIVAS AL VIEWPORT DEL DISPOSITIVO */
+    width: 50vw;
+    height: 50vh;
+}
+
+/*! MODELO DE CAJA */
+.container {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    padding: 10px;
+    border: 10px solid red;
+    margin: 10px;
+    /* TAMAÑO TOTAL DE LA CAJA (CONTENT+PADDING+BORDER) */
+    box-sizing: content-box;
+    /* TAMAÑO DE LA CAJA (CONTENT) */
+    box-sizing: border-box;
+}
+
+/*! SCROLL */
+.container {
+    /* VALOR POR DEFECTO, CON ESTA PROP PUEDES MANEJAR EL SCROLL */
+    overflow: visible;
+    /* COMO MOSTRAR TEXTO QUE SE DESBORDO */
+    text-overflow: ellipsis;
+}
+
+/*! POSITIONS */
+.container {
+    /* POSICION POR DEFECTO, SE ACOMODA COMO ESTE UBICADO EN EL HTML */
+    position: static;
+    /* POSICIONA SUS HIJOS EN RELACION A EL */
+    position: relative;
+    /* SE POSICIONA AL PRIMER PADRE RELATIVO QUE ENCUENTRE */
+    position: absolute;
+    /* SE POSICIONA A LA PANTALLA Y QUEDA FIJA SIN IMPORTAR SI SE HACE SCROLL */
+    position: fixed;
+    /* SE QUEDA PEGADO AL CONTENEDOR, AL HACER SCROLL ESTE SE DESPLAZA HASTA LLEGAR AL FINAL DEL MISMO */
+    position: sticky;
+    /* INDICE DE PROFUNDIDAD, SE ACTIVA SOLO CUANDO AHI UN CONTEXTO DE APILAMIENTO */
+    z-index: 99999;
+}
+
+/*! FLEXBOX */
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    /* AJUSTA EL TAMAÑO DE SUS HIJOS AL CONTENEDOR PADRE */
+    flex-wrap: nowrap;
+    /* SI NO CABE, HACE SALTO DE LINEA PARA AJUSTAR LOS ELEMENTOS CON SU TAMAÑO AL CONTENEDOR PADRE */
+    flex-wrap: wrap;
+    /* LOS ELEMENTOS NO CRECEN */
+    flex-grow: 0;
+    /* LOS ELEMENTOS PUEDEN REDUCIR SU TAMAÑO, MAS PEQUEÑO QUE EL FLEX-BASIS */
+    flex-shrink: 1;
+    /* LOS ELEMENTOS TIENEN UN TAMAÑO BASE EN AUTO */
+    flex-basis: auto;
+    /* HACER QUE UN ELEMENTO OCUPE MAS ESPACIO QUE LOS DEMAS */
+    flex: 2;
+    /* ORDENAR SUS HIJOS */
+    order: 3;
+}
+
+/*! GRID */
+.container {
+    display: grid;
+    grid-template-columns: 2fr 4fr 1fr;
+}
