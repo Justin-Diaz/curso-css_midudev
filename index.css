@@ -137,5 +137,17 @@
 /*! GRID */
 .container {
     display: grid;
+    /* NOMBRE PARA LUEGO LLAMAR EN LA TEMPLATE */
+    grid-area: content;
+    /* TEMPLATE PARA LAS AREAS */
+    grid-template-areas: "content content content" "header . sidebard";
+    /* TAMAÑO DE LAS COLUMNAS DE LA CUADRICULA */
     grid-template-columns: 2fr 4fr 1fr;
-}
+    /* TAMAÑO DE LAS FILAS DE LA CUADRICULA */
+    grid-template-rows: 100px 50px 30px 100px 50px;
+    /* REPETIR VARIOS TAMAÑOS */
+    grid-row-start: 25px repeat(5, 1fr) minmax(100px, 1fr) 25px;
+    /* TAMAÑO DE LAS FILAS DE MANERA AUTOMATICA POR DEFECTO*/
+    grid-auto-rows: 100px;
+    /* PARA QUE LA COLUMNA OCUPE TODO EL ESPACIO */
+    grid-column: 1/-1;}
